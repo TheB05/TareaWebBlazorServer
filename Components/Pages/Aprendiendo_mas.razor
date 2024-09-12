@@ -1,0 +1,52 @@
+@page "/Aprendiendo_mas"
+
+<PageTitle>AprendiendoMás</PageTitle>
+
+<center>
+<h1>Aprende más:</h1>
+</center>
+
+<div class="row">
+
+    @foreach (var Videos in Video){
+
+        <div class="cold-md-4">
+
+            <div class="card mb-3">
+            <img class="card-img-top" src="https://i.ytimg.com/vi/@Videos.URL/hqdefault.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@Videos.Titulo</h5>
+                        <p class="card-text">@Videos.Descripcion</p>
+                    </div>
+                    <div class="card-body">
+                        <a href="https://www.youtube.com/watch?v=@Videos.URL" target = "blank"
+                        class="card-link">Link hacia el video.</a>
+                    </div>
+        </div>
+        </div>
+    }
+
+
+</div>
+
+@code{
+
+    class Videos{
+        
+        public string Titulo { get; set; } = "";
+        public string URL { get; set; } = "";
+        public string Descripcion { get; set; } = "";
+    }
+
+    List<Videos> Video = new List<Videos>{
+
+        new Videos{Titulo = "Blazor en 10 minutos - ¿Qué es Blazor? - Aprende Blazor desde Cero", URL = "VDkiB5F7FH0", Descripcion = "Este video trata de enseñarnos las funciones básicas de Blazor en un corto tiempo."},
+        new Videos{Titulo = "¿QUÉ ES BLAZOR? ¿EL NUEVO JAVASCRIPT DE MICROSOFT?", URL = "piNHZAMxVuk", Descripcion = "El video se da una breve explicación de lo que es Blazor, y de cómo se puede decir que es la alternativa de Microsoft contra JS."},
+        new Videos{Titulo = "Introducción a Blazor - Qué es Blazor y cómo funciona", URL = "hwzzpOq0MIg", Descripcion = "Video tutorial que nos enseña el funcionamiento de Blazor detalladamente."},
+        new Videos{Titulo = "¿Qué diablos es Blazor? | ejemplo básico", URL = "ktDj2xD-H9s", Descripcion = "Video informativo de lo que es Blazor desde la perspectiva de un desarrollador de C#."},
+        new Videos{Titulo = "¿Cómo se compara Blazor con ASP.NET MVC?", URL = "KwXtrNqd3kA", Descripcion = "Comparativas de ASP.NET con Blazor."},
+    };
+
+
+
+}

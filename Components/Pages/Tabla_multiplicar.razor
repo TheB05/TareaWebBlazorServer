@@ -1,0 +1,29 @@
+@page "/Tabla_Multiplicar"
+@rendermode InteractiveServer
+
+<PageTitle>TablaMultiplicar</PageTitle>
+
+<center>
+<h1>Tabla de multiplicar</h1>
+
+<p>Aquí encontrarás una tabla de multiplicar funcional, desde el 1 hasta el 15, solo escribe el número del que quieras saber dicha tabla.</p>
+
+<div>
+    <label>Número:</label>
+    <input type="textbox" @bind="numero" class="form-control"/>
+</div>
+
+@if(numero > 0){
+
+    for(int i = 1; i <= 15; i++){
+
+        <div>@numero X @i = @(numero * i)</div>
+    }
+}
+
+@code{
+
+    int numero = 0;
+}
+
+</center>

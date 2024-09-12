@@ -1,0 +1,66 @@
+@page "/Calculadora"
+@rendermode InteractiveServer
+
+<PageTitle>CalculadoraWeb</PageTitle>
+
+<center>
+<h1>Calculadora de la web.</h1>
+
+<div>
+    <label>Número 1:</label>
+    <input type="textbox" @bind="num1" class="form-control"/>
+</div>
+
+<div>
+    <label>Número 2:</label>
+    <input type="textbox" @bind="num2" class="form-control"/>
+</div>
+
+<div class="mt-3">
+    <button class="btn btn-primary" @onclick="Sumar">Sumar</button>
+    <button class="btn btn-primary" @onclick="Restar">Restar</button>
+    <button class="btn btn-primary" @onclick="Multiplicar">Multiplicar</button>
+    <button class="btn btn-primary" @onclick="Dividir">Dividir</button>
+</div>
+
+<div class="mt-3">
+    <label>Resultado:</label>
+    <div class="form-control">
+        @resultado
+    </div>
+</div>
+
+@code {
+    double num1 = 0;
+    double num2 = 0;
+    double resultado = 0;
+
+    void Sumar()
+    {
+        resultado = num1 + num2;
+    }
+
+    void Restar()
+    {
+        resultado = num1 - num2;
+    }
+
+    void Multiplicar()
+    {
+        resultado = num1 * num2;
+    }
+
+    void Dividir()
+    {
+        if (num2 != 0)
+        {
+            resultado = num1 / num2;
+        }
+        else
+        {
+            resultado = double.NaN;
+        }
+    }
+}
+
+</center>
